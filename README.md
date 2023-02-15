@@ -26,14 +26,16 @@ Every exercise description can be also found in their component.
   - First button: when click on it, sort by name
   - Second button: when click on it, sort by age
   - Third button: when click on it, display the data in the order it comes from the api
-    `Bonus points` the use of shareReplay
+
+`Bonus points` the use of shareReplay
 
 ## 2.) Medium exercise
 
 - Display all users that are not contained in blackList, in a table
   - The table should contain field id and field name
 - A click on a user will display in an alert: the age of that user and in what category of age that user is
-  `HINT` You should not request the whole age database, you should just get the value that you need
+
+`HINT` You should not request the whole age database, you should just get the value that you need
 
 ## 3.) Hard exercise
 
@@ -42,7 +44,8 @@ Every exercise description can be also found in their component.
 - if the number is in this range, check if this number exists in blackList, and if it doesn't, show an error: "Error: The user that you search can not be displayed. Insufficient permissions."
 - if the user doesn't exist in blackList, get the name and age and display it on the screen
 - All errors that appear on screen should remain on there for exactly 10 sec.
-  `HINT` You should not request all the users and ages at once, request just the one you need by id
+
+`HINT` You should not request all the users and ages at once, request just the one you need by id
 
 ## 4.) Extreme exercise
 
@@ -74,4 +77,5 @@ Every exercise description can be also found in their component.
 </table>
 
 - All errors that appear on screen should remain on there for exactly 15 sec.
-  `HINT` When the user types again in the input, all the data is refreshed
+
+`HINT` When the user types again in the input, all the data is refreshed
