@@ -9451,3 +9451,98 @@ fieldset:disabled .btn {
 .no-border {
   border-bottom: none !important;
 }
+
+/* Please delete this after you add you code */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* body {
+  line-height: 1.5;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light';
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+} */
+
+.acc h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.acc .container {
+  max-width: 40em;
+  position: relative;
+  margin: 2em auto;
+  border-right: 1px solid #eee;
+  border-left: 1px solid #eee;
+  box-shadow: rgba(165, 165, 165, 0.3) 0 0 77px;
+}
+
+.acc label {
+  display: block;
+  overflow: hidden;
+}
+
+.acc .title {
+  padding: 1em 3em;
+  position: relative;
+  z-index: 599;
+  background: #fbfbfb;
+  border-bottom: 1px solid #eee;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.acc .title:hover {
+  cursor: pointer;
+  background: #f5f5f5;
+}
+
+.acc .content {
+  position: relative;
+  padding: 0;
+  max-height: 0px;
+  border-bottom: 1px solid #eee;
+  -webkit-transition: max-height 0.3s linear;
+  -moz-transition: max-height 0.3s linear;
+  transition: max-height 0.3s linear;
+}
+.acc .content p {
+  position: relative;
+  padding: 1.2em 3em;
+  margin: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all 0.55s ease;
+  -moz-transition: all 0.55s ease;
+  transition: all 0.55s ease;
+}
+
+.acc input[type='checkbox'] {
+  display: none;
+}
+
+.acc input[type='checkbox']:checked + .title {
+  background: #9aa1bf;
+}
+
+.acc input[type='checkbox']:checked + .title + .content {
+  max-height: 555px;
+}
+
+.acc input[type='checkbox']:checked + .title + .content p {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+/* Please delete this after you add you code */
