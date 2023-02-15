@@ -4,6 +4,13 @@
 
 Every exercise description can be also found in their component.
 
+## For all exercises
+
+- when working with observables please also unsubscribe, don't leave an observable opened
+- code can also be found on [github](https://github.com/BogdanaZ/rxjs-angular-ex1) and if it is easyer for you you can downloaded local and play with it, then commited to your git repo
+- try to make it also preaty (basic bootstrap already included)
+- try to work on it yourself don't copy
+
 ## 1.) Easy exercise
 
 - Get all users with their ages , type of ages and identity and display it in a table
@@ -17,7 +24,7 @@ Every exercise description can be also found in their component.
 
 ## 2.) Medium exercise
 
-- Display all users that are not in userNotToBeShown in a table <br>
+- Display all users that are not in userNotToBeShown in a table
   - The table should contain fild id and name
 - When I click on a user I want to see in an alert the age of that user and in what category of age that user is
   - You should not request the whole age database you should just get the value that you are need it
