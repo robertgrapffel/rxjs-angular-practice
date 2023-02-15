@@ -1,8 +1,53 @@
-.navbar-dark .navbar-nav .nav-link.active-link {
-  background-color: white;
-  color: #000000;
-  border-bottom: 3px solid orange;
+.navbar {
+  display: block;
+  padding: 0;
 }
+.collapse {
+  display: block;
+}
+
+.nav-item {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  position: relative;
+  top: -30px;
+  display: inline-block;
+  background-color: #2b8a3e;
+  color: white;
+  border-radius: 0px 0px 5px 5px;
+  margin-right: 5px;
+  transition: ease-in-out top 1s;
+  cursor: pointer;
+}
+
+.navbar-expand .navbar-nav .nav-link:hover {
+  top: 0;
+}
+
+.navbar-expand .navbar-nav .nav-link.active-link {
+  top: -3px;
+}
+
+.navbar-expand .navbar-nav .nav-link.blue {
+  background-color: #1864ab;
+}
+
+.navbar-expand .navbar-nav .nav-link.red {
+  background-color: #c92a2a;
+}
+
+.navbar-expand .navbar-nav .nav-link.black {
+  background-color: #212529;
+}
+
 .navbar.navbar-expand {
   padding: 0 5px 0;
+}
+
+.page_main {
+  padding: 5px;
 }

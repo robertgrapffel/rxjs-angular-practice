@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Age, AgeType, User } from './user.model';
-import { QueryUsageStrategy } from '@angular/core/schematics/migrations/static-queries/strategies/usage_strategy/usage_strategy';
+import { User } from './user.model';
 
 export const API = {
-  users: 'api/usersApiFirst',
-  usersApiSecond: 'api/usersApiSecond',
+  users: 'api/users',
+  userNotToBeShown: 'api/userNotToBeShown',
   ages: 'api/ages',
   agesType: 'api/agesType',
   identity: 'api/identity',
 };
 
 /**
- * To get the data from mock-memory-data.service you just need to do a http call to the api above
- * Ex: check getUsers
+ * To get the data from mock-memory-data.service you just need to do a http call to the API above
+ * Ex: check getUsers method from this service to get multiple data
+ * Ex: check getUserById method from this service to get just one user (one data)
  */
 
 @Injectable({
@@ -34,6 +34,15 @@ export class UserService {
     return this.http.get<User[]>(userApi || API.users).pipe(
       tap((users) => this.log('fetched users', users)),
       catchError(this.handleError<User[]>('getUsers', []))
+    );
+  }
+
+  /** GET user by id. Will 404 if id not found */
+  getUserById(id: number): Observable<User> {
+    const url = `${API.users}/${id}`;
+    return this.http.get<User>(url).pipe(
+      tap((_) => this.log(`fetched user id=${id}`)),
+      catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
 

@@ -7,9 +7,7 @@ import { UserService } from '../../user.service';
   styleUrls: ['./easy.component.css'],
 })
 export class EasyComponent implements OnInit {
-  constructor(private readonly _userservice: UserService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this._userservice.getUsers().subscribe();
-  }
+  ngOnInit() {}
 }

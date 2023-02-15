@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 import { AppRoutingModule } from './app-routing.module';
 import { EasyComponent } from './components/easy/easy.component';
 import { MediumComponent } from './components/medium/medium.component';
-import { ExtreamComponent } from './components/extream/extream.component';
+import { ExtremeComponent } from './components/extreme/extreme.component';
 import { HardComponent } from './components/hard/hard.component';
 
 @NgModule({
@@ -34,7 +34,7 @@ import { HardComponent } from './components/hard/hard.component';
     AppComponent,
     EasyComponent,
     MediumComponent,
-    ExtreamComponent,
+    ExtremeComponent,
     HardComponent,
   ],
   bootstrap: [AppComponent],
