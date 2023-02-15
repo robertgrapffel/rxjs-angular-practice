@@ -1,0 +1,8 @@
+.navbar-dark .navbar-nav .nav-link.active-link {
+  background-color: white;
+  color: #000000;
+  border-bottom: 3px solid orange;
+}
+.navbar.navbar-expand {
+  padding: 0 5px 0;
+}

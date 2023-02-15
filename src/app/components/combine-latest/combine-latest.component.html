@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Varsta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="loading">
+        <td colspan="100%" class="align-center">
+          <div class="spinner-border text-danger" role="status"></div>
+        </td>
+      </tr>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.nume}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

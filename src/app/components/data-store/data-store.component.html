@@ -1,0 +1,28 @@
+<div class="container">
+  <ul *ngIf="!showInfo">
+    <li>Deoarece primul state al behaviorSubject-ul nostru este empty array tabelul este gol.
+    </li>
+    <li>Noi date se stocheaza doar cand visitam pagina de combine latest.</li>
+  </ul>
+
+  <li *ngIf="showInfo">
+    Datele sunt vizibile deoarece am stocat in behaviorSubject (Data Store) cand am vizitat pagina Combine Latest
+  </li>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Varsta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.nume}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
