@@ -6,7 +6,7 @@ import { User } from './user.model';
 
 export const API = {
   users: 'api/users',
-  userNotToBeShown: 'api/userNotToBeShown',
+  blackList: 'api/blackList',
   ages: 'api/ages',
   agesType: 'api/agesType',
   identity: 'api/identity',

@@ -9534,7 +9534,7 @@ fieldset:disabled .btn {
 }
 
 .acc input[type='checkbox']:checked + .title + .content {
-  max-height: 555px;
+  max-height: 700px;
 }
 
 .acc input[type='checkbox']:checked + .title + .content p {

@@ -48,7 +48,7 @@ export class MockMemoryDataService implements InMemoryDbService {
       { id: 19, nume: 'Roland' },
       { id: 20, nume: 'Remus' },
     ];
-    const userNotToBeShown: UserId[] = [
+    const blackList: UserId[] = [
       { id: 21 },
       { id: 11 },
       { id: 22 },
@@ -137,7 +137,7 @@ export class MockMemoryDataService implements InMemoryDbService {
       { type: 'adult', ageMin: '20', ageMax: '64' },
       { type: 'senior', ageMin: '65', ageMax: '150' },
     ];
-    return { users, userNotToBeShown, ages, agesType, identity };
+    return { users, blackList, ages, agesType, identity };
   }
 
   // Overrides the genId method to ensure that a user always has an id.

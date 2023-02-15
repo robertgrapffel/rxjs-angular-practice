@@ -1,6 +1,6 @@
-<!-- After is done feel free to remove the exercise definition -->
+<!-- After you are finished, feel free to remove the exercise definition -->
 <!-- You can find all the exercise also in the readme.md file -->
-<!-- Try to play also with css to make it preaty -->
+<!-- Try to play with css to make the application preaty -->
 
 <h3 class="page-title">Exercise extreme</h3>
 <div class="acc">
@@ -12,39 +12,52 @@
       </div>
       <div class="content">
         <ul class="list-group">
+          <li class="list-group-item"></li>
           <li class="list-group-item">
-            Check if that name exist in the names of our users or that string is
-            contain in the name of our users (andra exist in Sandra, Alexanda,
-            Andra, etc)
+            If the string is not included in the name of the users, display an
+            error: "Error: The name is not found, Please try a different query"
           </li>
           <li class="list-group-item">
-            If the string was not included in the name of the users it will
-            display an error: "Error: The name is not found, Please search other
-            name"
+            Otherwise if it exists, check if the results found can be displayed
+            by searching in blackList
           </li>
           <li class="list-group-item">
-            Otherwise if exists a user or more with that string in it we will
-            search in userNotToBeShown if can be displayed
+            For user id that is found in blackList, show and error: "Error: The
+            user that you search can not be displayed. Insuficient permissions.
           </li>
           <li class="list-group-item">
-            If the id of the user exists userNotToBeShown and if it does show an
-            error: "Error: The user that you search can not be displayed.
-            Insuficient permissions."
-          </li>
-          <li class="list-group-item">
-            If the user doesn't exist in userNotToBeShown get the age and the
-            age type
+            If the user doesn't exist in blackList, get the age and display it
+            in a table with the id, the name of the user and a buttons
           </li>
           <li class="list-group-item">
             If all the condition are ok display the info gotten until now (name
             with age and id) and 2 buttons
           </li>
           <li class="list-group-item">
-            First button will be "More info", and when the user clicks on it we
-            will show also the age type and identity of the user/users
+            The button will be "More info", and when clicked, it will show in an
+            alert, the age type and identity of the user
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Button</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">user id</td>
+                  <td>user name</td>
+                  <td>user age</td>
+                  <td>button: get more info</td>
+                </tr>
+              </tbody>
+            </table>
           </li>
           <li class="list-group-item">
-            Second button will be "Clear", and all the data will be refreshed
+            All errors that appear on screen should remain on there for exactly
+            15 sec.
           </li>
           <li class="list-group-item">
             All the errors when appear should remain on the screen for only 15
@@ -53,5 +66,8 @@
         </ul>
       </div>
     </label>
+  </div>
+  <div class="alert alert-info" role="alert">
+    Hint: When the user types again in the input, all the data is refreshed
   </div>
 </div>
