@@ -13,7 +13,6 @@ import { EasyComponent } from './components/easy/easy.component';
 import { MediumComponent } from './components/medium/medium.component';
 import { ExtreamComponent } from './components/extream/extream.component';
 import { HardComponent } from './components/hard/hard.component';
-import { DataStoreService } from './data-store.service';
 
 @NgModule({
   imports: [
@@ -30,7 +29,7 @@ import { DataStoreService } from './data-store.service';
       dataEncapsulation: false,
     }),
   ],
-  providers: [UserService, DataStoreService],
+  providers: [UserService],
   declarations: [
     AppComponent,
     EasyComponent,
