@@ -42,7 +42,7 @@ Every exercise description can be also found in their component.
 
 - Add an input that accepts as a value a number from 0 to 40
 - if the number is not in this range, show an error : "Error: Please pick an user from 0 to 40"
-- if the number is in this range, check if this number exists in blackList, and if it doesn't, show an error: "Error: The user that you search can not be displayed. Insufficient permissions."
+- if the number is in this range, check if this number exists in blackList, and if it does, show an error: "Error: The user that you search can not be displayed. Insufficient permissions."
 - if the user doesn't exist in blackList, get the name and age and display it on the screen
 - All errors that appear on screen should remain on there for exactly 10 sec.
 
