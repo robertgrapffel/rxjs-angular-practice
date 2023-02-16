@@ -21,6 +21,7 @@ Every exercise description can be also found in their component.
 - Get all users with their ages, type of ages and identity and display it in a table
   - The table should contain field id, name, age, ageType, identity
   - If a user doesn't have an age added, please put 'none'
+  - If a user doesn't have an agetype added, please put 'none'
   - If a user doens't have an identity added, please add by default IdentityEnum.Personal
 - Create three buttons:
   - First button: when click on it, sort by name
