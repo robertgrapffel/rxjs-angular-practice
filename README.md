@@ -54,7 +54,7 @@ Every exercise description can be also found in their component.
   - Check if the inputed string is contained as one of the user names; ex. (andra exist in Sandra, Alexanda, Andra, etc)
     - If the string is not included in the name of the users, display an error: "Error: The name is not found, Please try a different query"
     - Otherwise if it exists, check if the results found can be displayed by searching in blackList
-    - For user id that is found in blackList, show and error: "Error: The user that you search can not be displayed. Insuficient permissions.
+    - For user id that is found in blackList, show and error: "Error: The user: [name] that you search can not be displayed. Insuficient permissions.
     - If the user doesn't exist in blackList, get the age and display it in a table with the id, the name of the user and a buttons
       - The button will be "More info", and when clicked, it will show in an alert the age type and identity of the user
 
