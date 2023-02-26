@@ -7,10 +7,10 @@ import {
   IdentityEnum,
   User,
   UserId,
-} from './user.model';
+} from "./models/user.model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class MockMemoryDataService implements InMemoryDbService {
   createDb() {

@@ -1,5 +1,5 @@
-import { Component, OnInit, VERSION } from '@angular/core';
-import { UserService } from './user.service';
+import { Component, OnInit, VERSION } from "@angular/core";
+import { UserService } from "./services/user.service";
 
 @Component({
   selector: 'my-app',

@@ -1,11 +1,11 @@
 export enum IdentityEnum {
-  'Female',
-  'Male',
-  'Intersex',
-  'Trans',
-  'NonConforming',
-  'Personal',
-  'Eunuch',
+  "Female",
+  "Male",
+  "Intersex",
+  "Trans",
+  "NonConforming",
+  "Personal",
+  "Eunuch",
 }
 export interface User {
   id: number;
@@ -38,4 +38,11 @@ export interface UserAge extends User {
 
 export interface UserAgeWithType extends UserAge {
   type: string;
+}
+
+export interface customUser {
+  user: User;
+  age?: string;
+  ageType?: string;
+  idetity?: IdentityEnum;
 }

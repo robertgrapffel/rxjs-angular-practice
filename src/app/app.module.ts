@@ -7,7 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { MockMemoryDataService } from "./mock-memory-data.service";
-import { UserService } from "./user.service";
+import { UserService } from "./services/user.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { EasyComponent } from "./components/easy/easy.component";
 import { MediumComponent } from "./components/medium/medium.component";
