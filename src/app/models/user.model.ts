@@ -40,9 +40,8 @@ export interface UserAgeWithType extends UserAge {
   type: string;
 }
 
-export interface customUser {
-  user: User;
-  age?: string;
+export interface CustomUser extends User {
+  userAge?: string;
   ageType?: string;
   idetity?: IdentityEnum;
 }

@@ -1,8 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
-import { Age, AgeType, Identity, User } from "../models/user.model";
+import { Observable, of, combineLatest } from "rxjs";
+import { catchError, map, shareReplay, take, tap } from "rxjs/operators";
+import {
+  Age,
+  AgeType,
+  CustomUser,
+  Identity,
+  IdentityEnum,
+  User,
+  UserId,
+} from "../models/user.model";
 
 export const API = {
   users: "api/users",
@@ -66,6 +74,44 @@ export class UserService {
       catchError(this.handleError<AgeType[]>("getUsersIdentities", []))
     );
   }
+
+  getBlackList(userApi?: string): Observable<UserId[]> {
+    return this.http.get<UserId[]>(userApi || API.blackList).pipe(
+      tap((blockedUsers) => this.log("fetched blocked users", blockedUsers)),
+      catchError(this.handleError<UserId[]>("getUsersIdentities", []))
+    );
+  }
+
+  getCustomUsers = (): Observable<CustomUser[]> => {
+    return combineLatest([
+      this.getUsers(),
+      this.getUsersAges(),
+      this.getUsersIdentities(),
+      this.getUsersAgesTypes(),
+    ]).pipe(
+      take(1),
+      shareReplay(1),
+      map(([users, ages, identities, ageTypes]) => {
+        return users.map((user: User) => {
+          const { id, nume } = user;
+          const userAge: string | undefined = ages.find(
+            (age: Age | undefined) => (age ? age.id === user.id : "None")
+          )?.age;
+          const userIdentity: Identity | undefined = identities.find(
+            (identity: Identity) => identity.id === user.id
+          );
+          const identity =
+            IdentityEnum[userIdentity?.type || IdentityEnum.Personal];
+          const ageType = ageTypes.find(
+            (type: AgeType) =>
+              userAge && +type.ageMax >= +userAge && +type.ageMin <= +userAge
+          )?.type;
+
+          return { id, nume, userAge, identity, ageType };
+        });
+      })
+    );
+  };
 
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {

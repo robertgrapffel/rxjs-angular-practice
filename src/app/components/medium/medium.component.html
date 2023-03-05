@@ -40,3 +40,19 @@
     value that you need
   </div>
 </div>
+<div>Start Here</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" (click)="onUserClick(user)">
+      <td scope="row">{{ user.id }}</td>
+      <td>{{ user.nume }}</td>
+    </tr>
+  </tbody>
+</table>
