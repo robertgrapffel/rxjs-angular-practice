@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CustomUser, User } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
 
 @Component({
@@ -21,5 +22,19 @@ export class EasyComponent implements OnInit {
     });
   };
 
-  //TODO: Add sorting buttons
+  sortByName = () => {
+    this.users = this.users.sort((first: CustomUser, second: CustomUser) => {
+      return first.nume < second.nume ? -1 : 1;
+    });
+  };
+
+  sortByAge = () => {
+    this.users = this.users.sort((first: CustomUser, second: CustomUser) => {
+      return +first.userAge! < +second.userAge! ? -1 : 1;
+    });
+  };
+
+  sortByApi = () => {
+    this.getUsers();
+  };
 }
