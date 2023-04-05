@@ -61,6 +61,14 @@ export class UserService {
     );
   }
 
+  getUserAgeById(id: number): Observable<Age> {
+    const url = `${API.ages}/${id}`;
+    return this.http.get<Age>(url).pipe(
+      tap((_) => this.log(`fetched user age=${id}`)),
+      catchError(this.handleError<Age>(`getUserAgeById id=${id}`))
+    );
+  }
+
   getUsersIdentities(userApi?: string): Observable<Identity[]> {
     return this.http.get<Identity[]>(userApi || API.identity).pipe(
       tap((identities) => this.log("fetched users identities", identities)),

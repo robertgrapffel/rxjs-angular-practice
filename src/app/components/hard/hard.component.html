@@ -38,3 +38,33 @@
     the one you need by id
   </div>
 </div>
+
+<div>Hard starts here &darr;</div>
+
+<form [formGroup]="hardForm">
+  <label for="userId">Enter user Id </label>
+  <input
+    [(ngModel)]="userInput"
+    (ngModelChange)="onInputChange()"
+    type="number"
+    formControlName="userId"
+    id="userId"
+  />
+  <div *ngIf="hardForm.get('userId')?.invalid">
+    <div
+      *ngIf="
+        hardForm.get('userId')?.hasError('min') ||
+        hardForm.get('userId')?.hasError('max')
+      "
+    >
+      <p>Please pick an user from 0 to 40</p>
+    </div>
+  </div>
+  <div *ngIf="userIsBlocked">
+    The user that you search can not be displayed. Insufficient permissions.
+  </div>
+
+  <div *ngIf="!userIsBlocked">
+    <p>The searched user is: {{ userName }}, Age:{{ userAge }}</p>
+  </div>
+</form>
