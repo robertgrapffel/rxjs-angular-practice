@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { combineLatest, map, take } from "rxjs";
-import { User, UserId } from "src/app/models/user.model";
+import { combineLatest, map, take, timer } from "rxjs";
 import { UserService } from "src/app/services/user.service";
 
 @Component({
@@ -55,6 +54,10 @@ export class HardComponent implements OnInit {
           if (blackList.find((user) => user.id === id)) {
             console.log("este blocat");
             this.userIsBlocked = true;
+
+            timer(10000).subscribe(() => {
+              this.userIsBlocked = false;
+            });
           }
 
           return { nume, age };

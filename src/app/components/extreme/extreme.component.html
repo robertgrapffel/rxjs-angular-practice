@@ -75,3 +75,42 @@
     Hint: When the user types again in the input, all the data is refreshed
   </div>
 </div>
+
+<div>Extreme</div>
+<form [formGroup]="extremeForm">
+  <label for="userInput">Enter user name </label>
+  <input
+    [(ngModel)]="searchedUser"
+    (ngModelChange)="onInputChange()"
+    type="text"
+    formControlName="userInput"
+    id="userInput"
+  />
+  <ng-container *ngIf="foundUsers.length == 0 && isDirty && !isInBlackList"
+    >Error: The name is not found, Please try a different query
+  </ng-container>
+  <ng-container *ngIf="foundUsers.length > 0 && isInBlackList && isDirty"
+    >Error: The user: {{ searchedUser }} that you search can not be displayed.
+    Insuficient permissions
+  </ng-container>
+  <ng-container *ngIf="isDirty && !isInBlackList">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Button</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of foundUsers">
+        <tr>
+          <td scope="row">{{ user.id }}</td>
+          <td>{{ user.nume }}</td>
+          <td></td>
+          <td><button type="button">Get more info</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</form>
