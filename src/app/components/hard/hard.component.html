@@ -60,7 +60,7 @@
 
   <div *ngIf="!isInBlackList && hardForm.get('userId')?.valid">
     <p>
-      The searched user is: {{ matchedUser.nume }}, Age:{{ matchedUser.age }}
+      The searched user is: {{ matchedUser?.nume }}, Age:{{ matchedUser?.age }}
     </p>
   </div>
 </form>
