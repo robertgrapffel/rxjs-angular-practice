@@ -1,7 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { combineLatest, map, take, timer } from "rxjs";
+import { combineLatest, shareReplay, take } from "rxjs";
+import { User, UserId } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
+
+export interface ICustomUser {
+  id: number;
+  nume: string;
+  age: string;
+}
 
 @Component({
   selector: "app-hard",
@@ -10,61 +17,61 @@ import { UserService } from "src/app/services/user.service";
 })
 export class HardComponent implements OnInit {
   public hardForm: FormGroup;
-  public userIsBlocked = false;
-  public userInput: number;
+  public isInBlackList = false;
+  public matchedUser: any = {};
 
-  public userName = "";
-  public userAge = "";
+  private _allUsers: User[] = [];
+  private _blackList: UserId[] = [];
 
   constructor(private _fb: FormBuilder, private _userService: UserService) {
     this.hardForm = this._buildForm();
-
-    this.userInput = +this.hardForm.get("userId")!;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._getData();
+    this.hardForm
+      .get("userId")
+      ?.valueChanges.pipe()
+      .subscribe((input) => {
+        this.isInBlackList = this._blackList.some(
+          (blockedUser) => blockedUser.id === input
+        );
+
+        // if (document.getElementById("error") !== null) {
+        //   setTimeout(
+        //     () => (document.getElementById("error").style.display = "none"),
+        //     1000
+        //   );
+        // }
+
+        this.matchedUser = this._allUsers.find((user) => user.id === input);
+      });
+  }
 
   private _buildForm = () => {
     return this._fb.group({
-      userId: [this.userInput, [Validators.min(0), Validators.max(40)]],
+      userId: ["", [Validators.min(0), Validators.max(40)]],
     });
   };
 
-  public onInputChange = () => {
-    this._checkUser(this.userInput).subscribe((res) => {
-      this.userName = res?.nume!;
-      this.userAge = res?.age!;
-    });
-  };
-
-  private _checkUser = (id: number) => {
+  private _getData = () => {
     return combineLatest([
-      this._userService.getUserById(id),
+      this._userService.getUsers(),
+      this._userService.getUsersAges(),
       this._userService.getBlackList(),
-      this._userService.getUserAgeById(id),
-    ]).pipe(
-      take(1),
-      map(([user, blackList, userAge]) => {
-        if (user.id) {
-          const { nume } = user;
-          const { age } = userAge;
+    ])
+      .pipe(take(1), shareReplay())
+      .subscribe(([allUsers, userAges, blackList]) => {
+        allUsers.map((user) => {
+          const userAge = userAges.find((ages) => ages.id === user.id);
 
-          this.userIsBlocked = false;
+          this._blackList = blackList;
 
-          if (blackList.find((user) => user.id === id)) {
-            console.log("este blocat");
-            this.userIsBlocked = true;
-
-            timer(10000).subscribe(() => {
-              this.userIsBlocked = false;
-            });
-          }
-
-          return { nume, age };
-        }
-
-        return;
-      })
-    );
+          return this._allUsers.push({
+            ...user,
+            ...userAge,
+          });
+        });
+      });
   };
 }

@@ -43,13 +43,7 @@
 
 <form [formGroup]="hardForm">
   <label for="userId">Enter user Id </label>
-  <input
-    [(ngModel)]="userInput"
-    (ngModelChange)="onInputChange()"
-    type="number"
-    formControlName="userId"
-    id="userId"
-  />
+  <input type="number" formControlName="userId" id="userId" />
   <div *ngIf="hardForm.get('userId')?.invalid">
     <div
       *ngIf="
@@ -60,11 +54,13 @@
       <p>Please pick an user from 0 to 40</p>
     </div>
   </div>
-  <div *ngIf="userIsBlocked">
+  <div *ngIf="isInBlackList && hardForm.get('userId')?.valid">
     The user that you search can not be displayed. Insufficient permissions.
   </div>
 
-  <div *ngIf="!userIsBlocked">
-    <p>The searched user is: {{ userName }}, Age:{{ userAge }}</p>
+  <div *ngIf="!isInBlackList && hardForm.get('userId')?.valid">
+    <p>
+      The searched user is: {{ matchedUser.nume }}, Age:{{ matchedUser.age }}
+    </p>
   </div>
 </form>
